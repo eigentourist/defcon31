@@ -1,0 +1,7 @@
+#Ignore everything!
+*
+
+# Except for the gitignore file and assembly source files and shell scripts.
+!.gitignore
+!*.s
+!*.sh
