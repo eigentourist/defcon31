@@ -7,7 +7,7 @@
 .global _start
 
 // Set up parameters
-_start:    mov x0, #1                   // 1 = StdOut
+_start:    mov x0, #1                   // 1 = stdout
            ldr x1, =msg                 // Pointer to string
            mov x2, #14                  // Length of string
            mov x8, #64                  // Linux write system call
@@ -15,7 +15,7 @@ _start:    mov x0, #1                   // 1 = StdOut
 
 // Set up parameters to exit the program and then call Linux to do it.
            mov x0, #0                   // Use 0 return code
-           mov x8, #93                  // Code 1 terminates the program
+           mov x8, #93                  // Code 93 terminates the program
            svc 0                        // Call Linux to terminate
 
 .data
