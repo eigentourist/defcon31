@@ -1,8 +1,8 @@
-.section .data
+.data
 hello_msg:
     .asciz "Hello World!"
 
-.section .text
+.text
 .global _start
 
 .extern initscr, printw, refresh, getch, endwin

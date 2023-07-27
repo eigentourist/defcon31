@@ -1,7 +1,8 @@
 // Print "Hello World!" to stdout.
 // X0-X2: parameters to linux function services
-// X8: linux function numbers
+// X8: linux function number
 
+.text
 
 // Global label to provide a starting address for the linker
 .global _start
