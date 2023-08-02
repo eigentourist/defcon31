@@ -14,6 +14,7 @@ _start:
     mov x5, #65535
 
     // Call the function to print the binary representation
+    // Be careful about the order in which you call these functions
     bl print_binary
     bl print_newline
     bl print_signed
