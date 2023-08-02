@@ -1,4 +1,7 @@
-.arch armv8-a
+.arch armv8-a   // Raspberry Pi 3b has ARM Cortex-A53
+                // Cortex-A64 implements ARMv8-A architecture
+                // and supports 64-bit address space
+                // and 64-bit data bus
 
 .extern printf
 
@@ -11,12 +14,10 @@ _start:
     mov x5, #65535
 
     // Call the function to print the binary representation
+    bl print_binary
+    bl print_newline
     bl print_signed
-    //bl print_newline
     bl print_unsigned
-    //bl print_newline
-    //bl print_binary
-    //bl print_newline
 
     // Exit the program
     mov x8, #93         // syscall number for exit
@@ -28,6 +29,7 @@ print_newline:
     mov x8, #64         // syscall number for write
     mov x0, #1          // file descriptor for stdout
     mov x2, #1          // number of characters to print -- just one in this case
+    svc 0
     ret
 
 print_signed:
