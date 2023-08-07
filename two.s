@@ -13,7 +13,8 @@
     // is the number of bits in the integer. Here, n is 64, because we are
     // working with the full width of the 64-bit registers of the processor.
     integer: .quad -16
-    // An easier way to think about it is that 
+    // An easier way to think about it is that the two's complement negative form
+    // can be derived by flipping all the bits and then adding 1.
 
 .text
 
@@ -50,8 +51,8 @@ print_newline:
 
 print_signed:
     ldr x0, =signed_int_str
-    ldr x2, =integer
-    ldr x1, [x2]
+    ldr x2, =integer    // remember that printf arguments are *pointers*, not the
+    ldr x1, [x2]        // actual values! So we use the address in x2 to load x1!
     str lr, [sp, #-16]! // push link register so we can return
     bl printf           // call printf function
     ldr lr, [sp], #16   // pop link register value so we can return
